@@ -3,6 +3,25 @@ import WebSiteImg_2 from '../assets/food-ecommerce.jpg';
 import WebSiteImg_3 from '../assets/website-blog.jpg';
 
 export default function Project () {
+    const config = {
+        projects : [
+            {
+                img: WebSiteImg_1,
+                desc: "A Ecommerce Website. Built with MERN stack.",
+                link: ""
+            },
+            {
+                img: WebSiteImg_2,
+                desc: "Food Ecommerce website like Swiggy, Built with Angular & .Net",
+                link: ""
+            },
+            {
+                img: WebSiteImg_3,
+                desc: "Basic Blog Website . Built with Next JS and MongoDB",
+                link: ""
+            }
+        ]
+    }
     return  <section id='project' className="flex flex-col py-20 px-5 justify-center text-white bg-primary">
                 <div className="w-full">
                     <div className="flex flex-col py-5 px-10">                        
@@ -12,24 +31,17 @@ export default function Project () {
                 </div>
                 <div className="w-full">
                     <div className='flex flex-col md:flex-row px-10 gap-5'>        
-                        <div className='relative'>
-                            <img className='h-[200px]' src={WebSiteImg_1}/>
-                            <div className='project-desc'>
-                                <p className='text-center px-5 py-5'>A Ecommerce Website. Built with MERN stack.</p>
-                            </div>                            
-                        </div>                
-                        <div className='relative'>                            
-                            <img className='h-[200px]' src={WebSiteImg_2}/>
-                            <div className='project-desc'>
-                                <p className='text-center px-5 py-5'>Food Ecommerce website like Swiggy, Built with Angular & .Net</p>
-                            </div>
-                        </div>                
-                        <div className='relative'>
-                            <img className='h-[200px]' src={WebSiteImg_3}/>      
-                            <div className='project-desc'>
-                                <p className='text-center px-5 py-5'>Basic Blog Website . Built with Next JS and MongoDB</p>
-                            </div>                      
-                        </div>                
+                        {config.projects.map((project) => (                                                   
+                            <div className='relative'>
+                                <img className='h-[200px]' src={project.img}/>
+                                <div className='project-desc'>
+                                    <p className='text-center px-5 py-5'>{project.desc}</p>
+                                    <div className='flex justify-center'>
+                                        <a className='btn' target='_blank' href={project.link}>View Project </a>
+                                    </div>
+                                </div>                            
+                            </div>                                                          
+                        ))}
                     </div>
                 </div>
             </section>
